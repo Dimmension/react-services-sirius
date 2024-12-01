@@ -11,7 +11,7 @@ const Header = () => {
             <NavLink>
                 <Button label='ФИО'></Button>
             </NavLink>
-            <NavLink>
+            <NavLink to='/login'>
                 <Button label='Вход'></Button>
             </NavLink>
         </Layout>
