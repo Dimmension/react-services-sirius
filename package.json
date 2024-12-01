@@ -1,12 +1,12 @@
 {
-  "name": "lk.sirius.react.project",
+  "name": "react-services-sirius",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
+    "dev": "vite --config config/vite.config.js",
+    "build": "vite build --config config/vite.config.js",
+    "lint": "eslint --config config/eslint.config.js .",
     "preview": "vite preview"
   },
   "dependencies": {
