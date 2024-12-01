@@ -9,7 +9,7 @@ import { IconBackward } from '@consta/icons/IconBackward';
 import { Card } from '@consta/uikit/Card';
 import MainPage from '../../pages/main-page/MainPage';
 import ServicePage from '../../pages/service-page/ServicePage';
-import ServiceDetailPage from '../../pages/servie-detail-page/ServiceDetailPage';
+import ServiceDetailPage from '../../pages/service-detail-page/ServiceDetailPage';
 import { Responses404 } from '@consta/uikit/Responses404';
 import MainLayout from '../../layouts/main-layout/MainLayout';
 import { AppRoute } from '../../../const';
