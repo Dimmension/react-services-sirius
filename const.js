@@ -1,5 +1,6 @@
 export const AppRoute = {
     main: '/',
     service: '/service',
-    auth: '/login'
+    auth: '/login',
+    profile: '/profile'
 }

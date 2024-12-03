@@ -1,11 +1,15 @@
 import { Layout } from '@consta/uikit/Layout';
 import Menu from '../menu/Menu';
 import React from 'react';
+import style from "./Footer.module.css"
 
 const Footer = () => {
     return (
-        <Layout>
+        <Layout className={style.Footer}>
             <Menu />
+            <div>
+                <p>© 2024 Моя компания</p>
+            </div>
         </Layout>
     )
 }

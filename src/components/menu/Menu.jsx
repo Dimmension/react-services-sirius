@@ -1,28 +1,20 @@
 import { Button } from "@consta/uikit/Button";
-import { Layout } from "@consta/uikit/Layout";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
+import style from "./Menu.module.css"
 
-const getStyleForNavLink = ({isActive}) => {
-    isActive
-      ? {
-            cursor: 'default',
-            color: 'black',
-            textDecoration: 'none',
-            padding: 20
-      }
-      : {padding: 20};
-}
+
 
 const Menu = () => {
+    const {pathname} = useLocation()
     return (
-        <Layout>
-            <NavLink to='/' style={getStyleForNavLink}>
-                <Button label='Главная страница'></Button>
+        <div className={style.Menu}>
+            <NavLink to='/' >
+                <Button view={pathname==="/" ? "primary" : "secondary"} label='Главная страница'></Button>
             </NavLink>
-            <NavLink to='/service'>
-                <Button label='Страница услуг'></Button>
+            <NavLink to='/service' activeClassName={style.active}>
+                <Button view={pathname==="/service" ? "primary" : "secondary"}  label='Страница услуг'></Button>
             </NavLink>
-        </Layout>
+        </div>
     );
 }
 
