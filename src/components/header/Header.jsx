@@ -5,11 +5,18 @@ import Menu from '../menu/Menu';
 import React from 'react';
 import style from "./Header.module.css";
 import { getToken, dropToken } from "../../token";
+import { jwtDecode } from 'jwt-decode'
 
 
 const Header = () => {
     const {pathname} = useLocation()
     const navigate = useNavigate();
+    const token = getToken();
+    let user = undefined;
+
+    if(token !== ''){
+        user = jwtDecode(token)
+    }
 
     const handleLogout = () => {
         dropToken();
@@ -19,11 +26,14 @@ const Header = () => {
         <Layout  className={style.Header}>
             <Menu />
             <div className={style.rightBlock}>
-            <NavLink to='/profile'>
-                <Button view={pathname==="/profile" ? "primary" : "secondary"} label='ФИО'></Button>
-            </NavLink>
+            {token ?
+                <NavLink to='/profile'>
+                    <Button view={pathname==="/profile" ? "primary" : "secondary"} label={`${user?.firstName} ${user?.lastName}`}></Button>
+                </NavLink>
+                : ''
+            }
             <NavLink to='/login'>
-                {getToken() ? <Button view="secondary" onClick={handleLogout} label='Выход'></Button>
+                {token ? <Button view="secondary" onClick={handleLogout} label='Выход'></Button>
                     : <Button view={pathname==="/login" ? "primary" : "secondary"} label='Вход'></Button>}
             </NavLink></div>
         </Layout>
